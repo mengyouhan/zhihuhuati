@@ -17,8 +17,8 @@ class Inter(object):
         return [a.get_text().strip() for a in pay]
 oneScollection = Scollection()
 # jiedian = []
-sss = ['https://www.zhihu.com//collection/115723985', 'https://www.zhihu.com//collection/113049070', 'https://www.zhihu.com//collection/68648939', 'https://www.zhihu.com//collection/97706444']
-for yy in sss:
+# sss = ['https://www.zhihu.com//collection/115723985', 'https://www.zhihu.com//collection/113049070', 'https://www.zhihu.com//collection/68648939', 'https://www.zhihu.com//collection/97706444']
+for yy in count.urlQs:
     oneUrl = oneScollection.get_urlQ(yy)
     # print(oneUrl)
     time.sleep(random.randint(1, 4))
@@ -26,6 +26,9 @@ for yy in sss:
         oneInter = Inter()
         # print('提取节点...')
         print(oneInter.start(o))
+        f = open('/Users/user/Desktop/cs2.txt','a',encoding='utf8')
+        f.write(str(oneInter.start(o)))
+        f.close()
     # print(jiedian)
 # c3 = Counter(jiedian)
 # c4 = c3.most_common(111111)
