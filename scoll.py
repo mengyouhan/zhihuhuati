@@ -1,15 +1,15 @@
 from bs4 import BeautifulSoup
-import requests
+import requests,time,random
 import os
 from unit import GetPrice
 class Scollection(object):
 
     def get_urlQ(self,url):
         # url = 'https://www.zhihu.com/collection/132331007'
-        print('解析'+url)
+        print(url)
         spider = GetPrice(url)
         try:
-            print('1')
+
             select2 = '.border-pager .zm-invite-pager span a'
             pay2 = spider.getPrice(select2)
             print(pay2)
@@ -27,6 +27,7 @@ class Scollection(object):
                 listQ += xx
             urlQ = ['https://www.zhihu.com/' + i for i in listQ]
             print('scoll.py try 完成')
+            time.sleep(random.randint(1, 7))
         except:
 
             spider_collection_select = ' div.zm-item h2 a '
@@ -36,7 +37,8 @@ class Scollection(object):
             urlQ = ['https://www.zhihu.com/' + i for i in xx]
             print('scoll.py except 完成')
 
+
         return urlQ
-oneScollection = Scollection()
-oneUrl = oneScollection.get_urlQ('www.zhihu.com//collection/132331007')
-print(oneUrl)
+# oneScollection = Scollection()
+# oneUrl = oneScollection.get_urlQ('https://www.zhihu.com//collection/115723985')
+# print(oneUrl)

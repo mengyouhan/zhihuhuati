@@ -17,4 +17,4 @@ for j in range(1, num + 1):
     # print(pa)
     urlQ = ['https://www.zhihu.com/' + i['href'] for i in pa]
     urlQs += urlQ
-# print(urlQs)
+print(urlQs)
