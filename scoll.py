@@ -16,7 +16,7 @@ class Scollection(object):
             listQ = []
             num = int(pay2[-2].get_text())
             for j in range(1, num + 1):
-                # print(j)
+                print(j)
                 page = j
                 url_collection = url + '?page={}'.format(page)
 
@@ -27,7 +27,7 @@ class Scollection(object):
                 listQ += xx
             urlQ = ['https://www.zhihu.com/' + i for i in listQ]
             print('scoll.py try 完成')
-            time.sleep(random.randint(1, 7))
+            time.sleep(random.randint(1, 3))
         except:
 
             spider_collection_select = ' div.zm-item h2 a '
@@ -39,6 +39,17 @@ class Scollection(object):
 
 
         return urlQ
-# oneScollection = Scollection()
-# oneUrl = oneScollection.get_urlQ('https://www.zhihu.com//collection/115723985')
-# print(oneUrl)
+oneScollection = Scollection()
+oneUrl = oneScollection.get_urlQ('https://www.zhihu.com/collection/38887091')
+f = open('/Users/user/Desktop/cs3.txt', 'a', encoding='utf8')
+f.write(str(oneUrl))
+f.close()
+print(oneUrl)
+# class Inter(object):
+#     def start(self,url):
+#         # url = 'https://www.zhihu.com/question/54370154'
+#         spider = GetPrice(url)
+#         select1 = '.zm-tag-editor-labels.zg-clear a '
+#         pay = spider.getPrice(select1)
+#
+#         return [a.get_text().strip() for a in pay]
